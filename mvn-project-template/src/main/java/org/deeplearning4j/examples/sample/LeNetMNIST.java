@@ -120,7 +120,7 @@ public class LeNetMNIST {
         model.init();
 
         log.info("Train model...");
-        model.setListeners(new ScoreIterationListener(10), new EvaluativeListener(mnistTest, 1, InvocationType.EPOCH_END)); //Print score every 10 iterations and evaluate on test set every epoch
+        model.setListeners(new ScoreIterationListener(50), new EvaluativeListener(mnistTest, 1, InvocationType.EPOCH_END)); //Print score every 10 iterations and evaluate on test set every epoch
         model.fit(mnistTrain, nEpochs);
 
         String path = FilenameUtils.concat(System.getProperty("java.io.tmpdir"), "lenetmnist.zip");
